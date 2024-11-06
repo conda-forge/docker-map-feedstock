@@ -1,18 +1,18 @@
 {% set name = "docker-map" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
-  name: "{{ name }}"
-  version: "{{ version }}"
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "200aa8231ed06ccf35145f148c6e816463bd4492481908cf513a3b3016485933"
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 9c4d6282e5e1d2a7d9ace9030ada7caf5a9576111388ed04013a67d7656030aa
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -39,11 +39,11 @@ test:
     - tests
 
 about:
-  home: "https://github.com/merll/docker-map"
-  license: "MIT"
-  license_family: "MIT"
-  license_file: "LICENSE"
-  summary: "Managing Docker images, containers, and their dependencies in Python."
+  home: https://github.com/merll/docker-map
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Managing Docker images, containers, and their dependencies in Python.
 
 extra:
   recipe-maintainers:
