@@ -10,21 +10,23 @@ source:
   sha256: "200aa8231ed06ccf35145f148c6e816463bd4492481908cf513a3b3016485933"
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - six
   run:
-    - python
+    - python >={{ python_min }}
     - six
     - docker-py
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - dockermap
     - dockermap.build
